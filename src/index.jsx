@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
+
+// 今回はGraphQLで最も使用されているApolloというフレームワークを使っています。
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
 const client = new ApolloClient({
@@ -13,6 +15,7 @@ const client = new ApolloClient({
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
+  // AppoloPriverで囲む。このへんの構成は検討する必要あり...(App.jsxで呼び出すのはやめたいかも)
   <ApolloProvider client={client}>
     <React.StrictMode>
       <App />
